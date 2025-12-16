@@ -1,0 +1,13 @@
+diff --git a/helm/kamaji/charts/kamaji-crds/values.yaml b/helm/kamaji/charts/kamaji-crds/values.yaml
+index 074b586..fe60b8b 100644
+--- a/helm/kamaji/charts/kamaji-crds/values.yaml
++++ b/helm/kamaji/charts/kamaji-crds/values.yaml
+@@ -8,7 +8,7 @@ nameOverride: ""
+ fullnameOverride: ""
+ 
+ # -- The namespace where Kamaji has been installed: required to inject the Certificate Authority for cert-manager.
+-kamajiNamespace: kamaji-system
++kamajiNamespace: giantswarm
+ # -- The Kamaji webhook Service name.
+ kamajiService: kamaji-webhook-service
+ # -- The cert-manager Certificate resource name, holding the Certificate Authority for webhooks.
