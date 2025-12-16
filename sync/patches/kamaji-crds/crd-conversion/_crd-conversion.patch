@@ -1,0 +1,13 @@
+diff --git a/helm/kamaji/charts/kamaji-crds/hack/crd-conversion.yaml b/helm/kamaji/charts/kamaji-crds/hack/crd-conversion.yaml
+index be48bdb..ead639b 100644
+--- a/helm/kamaji/charts/kamaji-crds/hack/crd-conversion.yaml
++++ b/helm/kamaji/charts/kamaji-crds/hack/crd-conversion.yaml
+@@ -5,7 +5,7 @@ spec:
+       clientConfig:
+         service:
+           name: kamaji-webhook-service
+-          namespace: kamaji-system
++          namespace: giantswarm
+           path: /convert
+       conversionReviewVersions:
+         - v1

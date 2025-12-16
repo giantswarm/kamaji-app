@@ -1,0 +1,57 @@
+diff --git a/helm/kamaji/charts/kamaji/values.yaml b/helm/kamaji/charts/kamaji/values.yaml
+index 0e99af1..1582a01 100644
+--- a/helm/kamaji/charts/kamaji/values.yaml
++++ b/helm/kamaji/charts/kamaji/values.yaml
+@@ -60,16 +60,20 @@ podAnnotations: {}
+ # -- The securityContext to apply to the Kamaji controller pods.
+ podSecurityContext:
+   runAsNonRoot: true
++  seccompProfile:
++    type: RuntimeDefault
+ 
+ # -- The securityContext to apply to the Kamaji controller container only. It does not apply to the Kamaji RBAC proxy container.
+ securityContext:
+   allowPrivilegeEscalation: false
+-  # capabilities:
+-  #   drop:
+-  #   - ALL
++  capabilities:
++    drop:
++    - ALL
+   # readOnlyRootFilesystem: true
+-  # runAsNonRoot: true
++  runAsNonRoot: true
+   # runAsUser: 1000
++  seccompProfile:
++    type: RuntimeDefault
+ 
+ resources:
+   limits:
+@@ -123,6 +127,8 @@ kubeconfigGenerator:
+   # -- The securityContext to apply to the Kubeconfig Generator controller pods.
+   podSecurityContext:
+     runAsNonRoot: true
++    seccompProfile:
++      type: RuntimeDefault
+   # -- The name of the service account to use. If not set, the root Kamaji one will be used.
+   serviceAccountOverride: ""
+   # -- The address the probe endpoint binds to.
+@@ -144,12 +150,14 @@ kubeconfigGenerator:
+   # -- The securityContext to apply to the Kubeconfig Generator controller container only.
+   securityContext:
+     allowPrivilegeEscalation: false
+-    # capabilities:
+-    #   drop:
+-    #   - ALL
++    capabilities:
++      drop:
++      - ALL
+     # readOnlyRootFilesystem: true
+-    # runAsNonRoot: true
++    runAsNonRoot: true
+     # runAsUser: 1000
++    seccompProfile:
++      type: RuntimeDefault
+   # -- Kubernetes node selector rules to schedule Kubeconfig Generator controller
+   nodeSelector: {}
+   # -- Kubernetes node taints that the Kubeconfig Generator controller pods would tolerate
