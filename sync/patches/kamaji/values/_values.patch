@@ -1,8 +1,8 @@
 diff --git a/helm/kamaji/charts/kamaji/values.yaml b/helm/kamaji/charts/kamaji/values.yaml
-index 0e99af1..1582a01 100644
+index 0e99af1..0cb4798 100644
 --- a/helm/kamaji/charts/kamaji/values.yaml
 +++ b/helm/kamaji/charts/kamaji/values.yaml
-@@ -60,16 +60,20 @@ podAnnotations: {}
+@@ -60,21 +60,25 @@ podAnnotations: {}
  # -- The securityContext to apply to the Kamaji controller pods.
  podSecurityContext:
    runAsNonRoot: true
@@ -27,6 +27,32 @@ index 0e99af1..1582a01 100644
  
  resources:
    limits:
+     cpu: 200m
+-    memory: 100Mi
++    memory: 250Mi
+   requests:
+     cpu: 100m
+     memory: 20Mi
+@@ -96,16 +100,16 @@ loggingDevel:
+   enable: false
+ 
+ # -- If specified, all the Kamaji instances with an unassigned DataStore will inherit this default value.
+-defaultDatastoreName: default
++defaultDatastoreName: ""
+ 
+ # -- Subchart: See https://github.com/clastix/kamaji-etcd/blob/master/charts/kamaji-etcd/values.yaml
+ kamaji-etcd:
+-  deploy: true
++  deploy: false
+   fullnameOverride: kamaji-etcd
+   ## -- Important, this must match your management cluster's clusterDomain, otherwise the init jobs will fail
+   clusterDomain: "cluster.local"
+   datastore:
+-    enabled: true
++    enabled: false
+     name: default
+ 
+ # -- Disable the analytics traces collection
 @@ -123,6 +127,8 @@ kubeconfigGenerator:
    # -- The securityContext to apply to the Kubeconfig Generator controller pods.
    podSecurityContext:
