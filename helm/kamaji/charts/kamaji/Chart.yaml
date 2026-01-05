@@ -20,4 +20,4 @@ dependencies:
 - name: kamaji-crds
   version: null
 annotations:
-  application.giantswarm.io/team: "rocket"
+  io.giantswarm.application.team: "rocket"

@@ -43,5 +43,5 @@ index f80c74d..a2b4632 100644
 -  artifacthub.io/changes: |
 -    - kind: added
 -      description: First commit
-+  application.giantswarm.io/team: "rocket"
++  io.giantswarm.application.team: "rocket"
 \ No newline at end of file

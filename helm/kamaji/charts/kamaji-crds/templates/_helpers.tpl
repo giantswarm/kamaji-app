@@ -46,5 +46,5 @@ app.kubernetes.io/name: {{ include "kamaji-crds.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/component: "crds"
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
+io.giantswarm.application.team: {{ index .Chart.Annotations "io.giantswarm.application.team" | quote }}
 {{- end }}

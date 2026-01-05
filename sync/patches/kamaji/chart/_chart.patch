@@ -59,5 +59,4 @@ index a7ec5fa..b72d7ef 100644
 -  artifacthub.io/changes: |
 -    - kind: added
 -      description: Releasing latest chart at every push
-+  application.giantswarm.io/team: "rocket"
-\ No newline at end of file
++  io.giantswarm.application.team: "rocket"
