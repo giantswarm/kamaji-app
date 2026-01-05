@@ -21,3 +21,5 @@ dependencies:
   version: null
 annotations:
   io.giantswarm.application.team: "rocket"
+  io.giantswarm.application.audience: "giantswarm"
+  io.giantswarm.application.managed: "true"

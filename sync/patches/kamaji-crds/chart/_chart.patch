@@ -2,9 +2,10 @@ diff --git a/helm/kamaji/charts/kamaji-crds/Chart.yaml b/helm/kamaji/charts/kama
 index f80c74d..a2b4632 100644
 --- a/helm/kamaji/charts/kamaji-crds/Chart.yaml
 +++ b/helm/kamaji/charts/kamaji-crds/Chart.yaml
-@@ -1,37 +1,15 @@
+@@ -1,37 +1,17 @@
  apiVersion: v2
- appVersion: latest
+-appVersion: latest
++appVersion: edge-25.12.3
  description: Kamaji is the Hosted Control Plane Manager for Kubernetes.
 -home: https://github.com/clastix/kamaji
 +home: https://github.com/giantswarm/kamaji-app
@@ -22,7 +23,8 @@ index f80c74d..a2b4632 100644
  sources:
    - https://github.com/clastix/kamaji
  type: application
- version: 0.0.0+latest
+-version: 0.0.0+latest
++version: null
  annotations:
 -  artifacthub.io/crds: |
 -    - kind: TenantControlPlane
@@ -44,4 +46,5 @@ index f80c74d..a2b4632 100644
 -    - kind: added
 -      description: First commit
 +  io.giantswarm.application.team: "rocket"
-\ No newline at end of file
++  io.giantswarm.application.audience: "giantswarm"
++  io.giantswarm.application.managed: "true"

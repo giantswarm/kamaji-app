@@ -2,7 +2,7 @@ diff --git a/helm/kamaji/charts/kamaji/Chart.yaml b/helm/kamaji/charts/kamaji/Ch
 index a7ec5fa..b72d7ef 100644
 --- a/helm/kamaji/charts/kamaji/Chart.yaml
 +++ b/helm/kamaji/charts/kamaji/Chart.yaml
-@@ -1,50 +1,23 @@
+@@ -1,50 +1,25 @@
  apiVersion: v2
  appVersion: latest
  description: Kamaji is the Hosted Control Plane Manager for Kubernetes.
@@ -60,3 +60,5 @@ index a7ec5fa..b72d7ef 100644
 -    - kind: added
 -      description: Releasing latest chart at every push
 +  io.giantswarm.application.team: "rocket"
++  io.giantswarm.application.audience: "giantswarm"
++  io.giantswarm.application.managed: "true"
