@@ -1,0 +1,15 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: 'feat: add support for multiple Datastores (#961)...'
+      sha: d3fb03a75242270cd75bb3f27690f73ab84831ed
+      tags:
+      - edge-25.12.3
+    path: kamaji
+  path: vendor
+- contents:
+  - directory: {}
+    path: .
+  path: helm/kamaji
+kind: LockConfig
