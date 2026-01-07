@@ -7,7 +7,7 @@ replicaCount: 1
 
 image:
   # -- The container image of the Kamaji controller.
-  repository: clastix/kamaji
+  repository: gsoci.azurecr.io/giantswarm/kamaji
   pullPolicy: Always
   # -- Overrides the image tag whose default is the chart appVersion.
   tag:
@@ -60,21 +60,25 @@ podAnnotations: {}
 # -- The securityContext to apply to the Kamaji controller pods.
 podSecurityContext:
   runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
 
 # -- The securityContext to apply to the Kamaji controller container only. It does not apply to the Kamaji RBAC proxy container.
 securityContext:
   allowPrivilegeEscalation: false
-  # capabilities:
-  #   drop:
-  #   - ALL
+  capabilities:
+    drop:
+    - ALL
   # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
+  runAsNonRoot: true
   # runAsUser: 1000
+  seccompProfile:
+    type: RuntimeDefault
 
 resources:
   limits:
     cpu: 200m
-    memory: 100Mi
+    memory: 250Mi
   requests:
     cpu: 100m
     memory: 20Mi
@@ -96,16 +100,16 @@ loggingDevel:
   enable: false
 
 # -- If specified, all the Kamaji instances with an unassigned DataStore will inherit this default value.
-defaultDatastoreName: default
+defaultDatastoreName: ""
 
 # -- Subchart: See https://github.com/clastix/kamaji-etcd/blob/master/charts/kamaji-etcd/values.yaml
 kamaji-etcd:
-  deploy: true
+  deploy: false
   fullnameOverride: kamaji-etcd
   ## -- Important, this must match your management cluster's clusterDomain, otherwise the init jobs will fail
   clusterDomain: "cluster.local"
   datastore:
-    enabled: true
+    enabled: false
     name: default
 
 # -- Disable the analytics traces collection
@@ -123,6 +127,8 @@ kubeconfigGenerator:
   # -- The securityContext to apply to the Kubeconfig Generator controller pods.
   podSecurityContext:
     runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
   # -- The name of the service account to use. If not set, the root Kamaji one will be used.
   serviceAccountOverride: ""
   # -- The address the probe endpoint binds to.
@@ -144,12 +150,14 @@ kubeconfigGenerator:
   # -- The securityContext to apply to the Kubeconfig Generator controller container only.
   securityContext:
     allowPrivilegeEscalation: false
-    # capabilities:
-    #   drop:
-    #   - ALL
+    capabilities:
+      drop:
+      - ALL
     # readOnlyRootFilesystem: true
-    # runAsNonRoot: true
+    runAsNonRoot: true
     # runAsUser: 1000
+    seccompProfile:
+      type: RuntimeDefault
   # -- Kubernetes node selector rules to schedule Kubeconfig Generator controller
   nodeSelector: {}
   # -- Kubernetes node taints that the Kubeconfig Generator controller pods would tolerate
