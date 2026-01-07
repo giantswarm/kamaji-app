@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- changed: `app.giantswarm.io` label group was changed to `application.giantswarm.io`
+- Changed: `app.giantswarm.io` label group was changed to `application.giantswarm.io`
+- Changed: Switch kamaji image to use gsoci registry
 
 [Unreleased]: https://github.com/giantswarm/kamaji-app/tree/main

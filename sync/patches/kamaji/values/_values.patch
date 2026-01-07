@@ -1,7 +1,16 @@
 diff --git a/helm/kamaji/charts/kamaji/values.yaml b/helm/kamaji/charts/kamaji/values.yaml
-index 0e99af1..0cb4798 100644
+index 0e99af1..de7ece1 100644
 --- a/helm/kamaji/charts/kamaji/values.yaml
 +++ b/helm/kamaji/charts/kamaji/values.yaml
+@@ -7,7 +7,7 @@ replicaCount: 1
+ 
+ image:
+   # -- The container image of the Kamaji controller.
+-  repository: clastix/kamaji
++  repository: gsoci.azurecr.io/giantswarm/kamaji
+   pullPolicy: Always
+   # -- Overrides the image tag whose default is the chart appVersion.
+   tag:
 @@ -60,21 +60,25 @@ podAnnotations: {}
  # -- The securityContext to apply to the Kamaji controller pods.
  podSecurityContext:
