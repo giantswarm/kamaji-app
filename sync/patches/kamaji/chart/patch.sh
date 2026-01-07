@@ -28,7 +28,7 @@ sed -i -E "s/^appVersion.*$/appVersion: ${UPSTREAM_SYNC_VERSION}/" "${CHART_DIR}
 # latest release of this repo. So we fetch it with jq and then
 # inject it back into the Chart.yaml to avoid the upstream change and let build suite update it.
 
-LATEST_VERSION=$(curl -s https://api.github.com/repos/giantswarm/kamaji/releases/latest | jq -r .name)
+LATEST_VERSION=$(curl -s https://api.github.com/repos/giantswarm/kamaji-app/releases/latest | jq -r .name)
 # remove leading 'v' if present
 LATEST_VERSION="${LATEST_VERSION#v}"
 
