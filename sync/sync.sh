@@ -28,3 +28,10 @@ helm dependency update helm/kamaji/charts/kamaji
  ./sync/patches/kamaji-crds/crd-conversion/patch.sh
  ./sync/patches/kamaji-crds/helpers/patch.sh
  ./sync/patches/kamaji-crds/values/patch.sh
+
+# Simplify chart and fix dependencies
+rm -rf "${kamaji_chart_dir}/charts/"
+mv "${kamaji_chart_dir}/"* "./helm/kamaji"
+rm -rf "${kamaji_chart_dir}"
+
+helm dependency update ./helm/kamaji
