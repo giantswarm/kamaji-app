@@ -9,8 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2026-01-08
 
-- Changed: `app.giantswarm.io` label group was changed to `application.giantswarm.io`
-- Changed: Switch kamaji image to use gsoci registry
+### Added
+
+- Added `sync/` folder with patch-based sync system for maintaining Giant Swarm specific overrides
+- Added vendir configuration for syncing upstream chart
 
 [Unreleased]: https://github.com/giantswarm/kamaji-app/compare/v0.0.1...HEAD
 [0.0.1]: https://github.com/giantswarm/kamaji-app/releases/tag/v0.0.1
