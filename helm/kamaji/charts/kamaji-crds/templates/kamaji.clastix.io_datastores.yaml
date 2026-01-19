@@ -3,6 +3,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     cert-manager.io/inject-ca-from: {{ include "kamaji-crds.certManagerAnnotation" . }}
+    helm.sh/resource-policy: keep
   labels:
     {{- include "kamaji-crds.labels" . | nindent 4 }}
   name: datastores.kamaji.clastix.io

@@ -27,6 +27,7 @@ mv helm/kamaji-crds "$kamaji_chart_dir/charts/"
 
 # Patches for Kamaji CRDs
  ./sync/patches/kamaji-crds/chart/patch.sh
+ ./sync/patches/kamaji-crds/crds/patch.sh
  ./sync/patches/kamaji-crds/crd-conversion/patch.sh
  ./sync/patches/kamaji-crds/helpers/patch.sh
  ./sync/patches/kamaji-crds/values/patch.sh
