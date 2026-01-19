@@ -17,8 +17,6 @@ vendir sync
 mkdir -p "$kamaji_chart_dir/charts"
 mv helm/kamaji-crds "$kamaji_chart_dir/charts/"
 
-helm dependency update helm/kamaji
-
 # Copy overwrites
  cp -R "./sync/overwrites/kamaji/." "$kamaji_chart_dir"
 
