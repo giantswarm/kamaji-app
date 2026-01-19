@@ -1,4 +1,4 @@
 replace-chart-version-with-git: true
 generate-metadata: true
-chart-dir: ./helm/kamaji-app
+chart-dir: ./helm/kamaji
 destination: ./build
