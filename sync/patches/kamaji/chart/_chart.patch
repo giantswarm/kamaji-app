@@ -2,13 +2,15 @@ diff --git a/helm/kamaji/charts/kamaji/Chart.yaml b/helm/kamaji/charts/kamaji/Ch
 index a7ec5fa..b72d7ef 100644
 --- a/helm/kamaji/charts/kamaji/Chart.yaml
 +++ b/helm/kamaji/charts/kamaji/Chart.yaml
-@@ -1,50 +1,25 @@
+@@ -1,50 +1,27 @@
  apiVersion: v2
- appVersion: latest
+-appVersion: latest
++appVersion: UPSTREAM_SYNC_VERSION
  description: Kamaji is the Hosted Control Plane Manager for Kubernetes.
 -home: https://github.com/clastix/kamaji
+-icon: https://github.com/clastix/kamaji/raw/master/assets/logo-colored.png
 +home: https://github.com/giantswarm/kamaji-app
- icon: https://github.com/clastix/kamaji/raw/master/assets/logo-colored.png
++icon: https://s.giantswarm.io/app-icons/kamaji/1/light.png
  kubeVersion: ">=1.21.0-0"
  maintainers:
 -- email: dario@tranchitella.eu
@@ -26,7 +28,7 @@ index a7ec5fa..b72d7ef 100644
  - https://github.com/clastix/kamaji
  type: application
 -version: 0.0.0+latest
-+version: null
++version: REPLACE_CHARTVERSION
  dependencies:
  - name: kamaji-etcd
    repository: https://clastix.github.io/charts
@@ -62,3 +64,5 @@ index a7ec5fa..b72d7ef 100644
 +  io.giantswarm.application.team: "rocket"
 +  io.giantswarm.application.audience: "giantswarm"
 +  io.giantswarm.application.managed: "true"
++  io.giantswarm.application.upstream-chart-url: "https://github.com/clastix/kamaji"
++  io.giantswarm.application.upstream-chart-version: "UPSTREAM_SYNC_VERSION"

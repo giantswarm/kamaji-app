@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: edge-25.12.3
 description: Kamaji is the Hosted Control Plane Manager for Kubernetes.
 home: https://github.com/giantswarm/kamaji-app
-icon: https://github.com/clastix/kamaji/raw/master/assets/logo-colored.png
+icon: https://s.giantswarm.io/app-icons/kamaji/1/light.png
 kubeVersion: ">=1.21.0-0"
 maintainers:
   - name: Team Rocket
@@ -23,3 +23,5 @@ annotations:
   io.giantswarm.application.team: "rocket"
   io.giantswarm.application.audience: "giantswarm"
   io.giantswarm.application.managed: "true"
+  io.giantswarm.application.upstream-chart-url: "https://github.com/clastix/kamaji"
+  io.giantswarm.application.upstream-chart-version: "edge-25.12.3"
