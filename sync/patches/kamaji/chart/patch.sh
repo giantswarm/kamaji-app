@@ -6,7 +6,7 @@ set -o pipefail
 
 repo_dir=$(git rev-parse --show-toplevel) ; readonly repo_dir
 script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) ; readonly script_dir
-CHART_DIR="${repo_dir}/helm/kamaji/charts/kamaji" ; readonly CHART_DIR
+CHART_DIR="${repo_dir}/helm/kamaji" ; readonly CHART_DIR
 
 cd "${repo_dir}"
 
