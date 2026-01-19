@@ -12,4 +12,8 @@ directories:
   - directory: {}
     path: .
   path: helm/kamaji
+- contents:
+  - directory: {}
+    path: .
+  path: helm/kamaji-crds
 kind: LockConfig

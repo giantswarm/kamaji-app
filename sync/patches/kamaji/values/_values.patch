@@ -1,7 +1,7 @@
-diff --git a/helm/kamaji/charts/kamaji/values.yaml b/helm/kamaji/charts/kamaji/values.yaml
+diff --git a/helm/kamaji/values.yaml b/helm/kamaji/values.yaml
 index 0e99af1..de7ece1 100644
---- a/helm/kamaji/charts/kamaji/values.yaml
-+++ b/helm/kamaji/charts/kamaji/values.yaml
+--- a/helm/kamaji/values.yaml
++++ b/helm/kamaji/values.yaml
 @@ -7,7 +7,7 @@ replicaCount: 1
  
  image:

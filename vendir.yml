@@ -14,11 +14,22 @@ directories:
     contents:
     - path: .
       directory:
-        path: vendor/kamaji
+        path: vendor/kamaji/charts/kamaji
       excludePaths:
-        - charts/kamaji/Makefile
-        - charts/kamaji/README.md*
-        - charts/kamaji/values.sample.yaml
-        - charts/kamaji/crds/**
-        - charts/kamaji-crds/Makefile
-        - charts/kamaji-crds/README.md*
+        - Makefile
+        - README.md*
+        - values.sample.yaml
+        - crds/**
+        - .helmignore
+  # Sync crds chart ouutside of the main kamaji chart as vendir does
+  # not allow management of nested paths, but we can still retain the
+  # vendir logic to exclude files we don't want. We manually move the
+  # crds chart into the right place in sync.sh later.
+  - path: helm/kamaji-crds
+    contents:
+    - path: .
+      directory:
+        path: vendor/kamaji/charts/kamaji-crds
+      excludePaths:
+        - Makefile
+        - README.md*

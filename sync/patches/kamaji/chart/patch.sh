@@ -6,7 +6,7 @@ set -o pipefail
 
 repo_dir=$(git rev-parse --show-toplevel) ; readonly repo_dir
 script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) ; readonly script_dir
-CHART_DIR="${repo_dir}/helm/kamaji/charts/kamaji" ; readonly CHART_DIR
+CHART_DIR="${repo_dir}/helm/kamaji" ; readonly CHART_DIR
 
 cd "${repo_dir}"
 
@@ -22,7 +22,7 @@ git apply "${script_dir_rel}/_chart.patch"
 UPSTREAM_SYNC_VERSION=$(yq -r .directories[0].contents[0].git.ref ./vendir.yml)
 
 # set the app version in Chart.yaml
-sed -i -E "s/^appVersion.*$/appVersion: ${UPSTREAM_SYNC_VERSION}/" "${CHART_DIR}/Chart.yaml"
+sed -i -E "s/UPSTREAM_SYNC_VERSION/${UPSTREAM_SYNC_VERSION}/" "${CHART_DIR}/Chart.yaml"
 
 # we need to reset the version field in Chart.yaml to match the
 # latest release of this repo. So we fetch it with jq and then
@@ -33,7 +33,7 @@ LATEST_VERSION=$(curl -s https://api.github.com/repos/giantswarm/kamaji-app/rele
 LATEST_VERSION="${LATEST_VERSION#v}"
 
 # set the app version in Chart.yaml
-sed -i -E "s/^version.*$/version: ${LATEST_VERSION}/" "${CHART_DIR}/Chart.yaml"
+sed -i -E "s/REPLACE_CHARTVERSION/${LATEST_VERSION}/" "${CHART_DIR}/Chart.yaml"
 sed -i "s/REPLACE_CRDVERSION/${LATEST_VERSION}/g" "${CHART_DIR}/Chart.yaml"
 
 { set +x; } 2>/dev/null

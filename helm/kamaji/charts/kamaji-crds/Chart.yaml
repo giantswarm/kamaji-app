@@ -10,7 +10,7 @@ name: kamaji-crds
 sources:
   - https://github.com/clastix/kamaji
 type: application
-version: null
+version: 0.0.1
 annotations:
   io.giantswarm.application.team: "rocket"
   io.giantswarm.application.audience: "giantswarm"

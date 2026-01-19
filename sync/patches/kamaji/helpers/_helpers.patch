@@ -1,7 +1,7 @@
-diff --git a/helm/kamaji/charts/kamaji/templates/_helpers.tpl b/helm/kamaji/charts/kamaji/templates/_helpers.tpl
+diff --git a/helm/kamaji/templates/_helpers.tpl b/helm/kamaji/templates/_helpers.tpl
 index f0bf1be..28db057 100644
---- a/helm/kamaji/charts/kamaji/templates/_helpers.tpl
-+++ b/helm/kamaji/charts/kamaji/templates/_helpers.tpl
+--- a/helm/kamaji/templates/_helpers.tpl
++++ b/helm/kamaji/templates/_helpers.tpl
 @@ -40,6 +40,7 @@ helm.sh/chart: {{ include "kamaji.chart" . }}
  app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
  {{- end }}
