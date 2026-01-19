@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) ; readonly dir
-kamaji_chart_dir="./helm/kamaji/charts/kamaji"
+kamaji_chart_dir="./helm/kamaji/"
 kamajicrds_chart_dir="./helm/kamaji/charts/kamaji-crds"
 
 cd "${dir}/.."
@@ -13,7 +13,11 @@ cd "${dir}/.."
 # Sync - intermediate to the ./vendir folder -- KAMAJI APP
 set -x
 vendir sync
-helm dependency update helm/kamaji/charts/kamaji
+
+mkdir -p "$kamaji_chart_dir/charts"
+mv helm/kamaji-crds "$kamaji_chart_dir/charts/"
+
+helm dependency update helm/kamaji
 
 # Copy overwrites
  cp -R "./sync/overwrites/kamaji/." "$kamaji_chart_dir"
