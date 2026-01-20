@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add Helm `keep` annotation to all CRDs.
 - Added values schema to kamaji chart.
+- Added values schema to kamaji-crds chart.
 
 ### Changed
 
