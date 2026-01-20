@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "fullnameOverride": {
+      "description": "Overrides the full name of the resources created by the chart.",
+      "title": "fullnameOverride",
+      "type": "string"
+    },
+    "kamajiCertificateName": {
+      "default": "kamaji-serving-cert",
+      "description": "The cert-manager Certificate resource name, holding the Certificate Authority for webhooks.",
+      "title": "kamajiCertificateName",
+      "type": "string"
+    },
+    "kamajiNamespace": {
+      "default": "giantswarm",
+      "description": "The namespace where Kamaji has been installed: required to inject the Certificate Authority for cert-manager.",
+      "title": "kamajiNamespace",
+      "type": "string"
+    },
+    "kamajiService": {
+      "default": "kamaji-webhook-service",
+      "description": "The Kamaji webhook Service name.",
+      "title": "kamajiService",
+      "type": "string"
+    },
+    "nameOverride": {
+      "description": "Overrides the name of the chart for resource naming purposes.",
+      "title": "nameOverride",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
