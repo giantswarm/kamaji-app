@@ -11,7 +11,7 @@ name: kamaji
 sources:
   - https://github.com/clastix/kamaji
 type: application
-version: 0.1.0
+version: 0.1.1
 dependencies:
   - name: kamaji-crds
     version: 0.0.1
