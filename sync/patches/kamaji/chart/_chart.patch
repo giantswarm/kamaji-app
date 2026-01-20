@@ -2,7 +2,7 @@ diff --git a/helm/kamaji/Chart.yaml b/helm/kamaji/Chart.yaml
 index a7ec5fa..b72d7ef 100644
 --- a/helm/kamaji/Chart.yaml
 +++ b/helm/kamaji/Chart.yaml
-@@ -1,50 +1,27 @@
+@@ -1,50 +1,23 @@
  apiVersion: v2
 -appVersion: latest
 +appVersion: UPSTREAM_SYNC_VERSION
@@ -30,10 +30,10 @@ index a7ec5fa..b72d7ef 100644
 -version: 0.0.0+latest
 +version: REPLACE_CHARTVERSION
  dependencies:
- - name: kamaji-etcd
-   repository: https://clastix.github.io/charts
-   version: ">=0.11.0"
-   condition: kamaji-etcd.deploy
+-- name: kamaji-etcd
+-  repository: https://clastix.github.io/charts
+-  version: ">=0.11.0"
+-  condition: kamaji-etcd.deploy
 +- name: kamaji-crds
 +  version: REPLACE_CRDVERSION
  annotations:
