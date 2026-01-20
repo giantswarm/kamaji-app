@@ -31,5 +31,3 @@ mv helm/kamaji-crds "$kamaji_chart_dir/charts/"
  ./sync/patches/kamaji-crds/crd-conversion/patch.sh
  ./sync/patches/kamaji-crds/helpers/patch.sh
  ./sync/patches/kamaji-crds/values/patch.sh
-
-helm dependency update ./helm/kamaji
