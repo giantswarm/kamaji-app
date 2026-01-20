@@ -24,6 +24,7 @@ mv helm/kamaji-crds "$kamaji_chart_dir/charts/"
  ./sync/patches/kamaji/chart/patch.sh
  ./sync/patches/kamaji/values/patch.sh
  ./sync/patches/kamaji/helpers/patch.sh
+ ./sync/patches/kamaji/kube-linter/patch.sh
 
 # Patches for Kamaji CRDs
  ./sync/patches/kamaji-crds/chart/patch.sh
