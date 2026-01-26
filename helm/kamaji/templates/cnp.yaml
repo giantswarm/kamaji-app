@@ -1,7 +1,7 @@
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-kamaji-to-apiserver
+  name: kamaji
   namespace: {{ .Release.Namespace }}
 spec:
   endpointSelector:
@@ -14,3 +14,7 @@ spec:
         - ports:
             - port: "6443"
               protocol: TCP
+  ingress:
+  - fromEntities:
+    - cluster
+    - kube-apiserver
