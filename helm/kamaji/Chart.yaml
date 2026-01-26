@@ -9,12 +9,12 @@ maintainers:
     email: team-rocket@giantswarm.io
 name: kamaji
 sources:
-- https://github.com/clastix/kamaji
+  - https://github.com/clastix/kamaji
 type: application
-version: 0.2.0
+version: 0.2.1
 dependencies:
-- name: kamaji-crds
-  version: 0.2.0
+  - name: kamaji-crds
+    version: 0.2.0
 annotations:
   io.giantswarm.application.team: "rocket"
   io.giantswarm.application.audience: "giantswarm"
