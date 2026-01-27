@@ -14,6 +14,15 @@ spec:
         - ports:
             - port: "6443"
               protocol: TCP
+    - toEndpoints:
+        - matchLabels:
+            app.kubernetes.io/name: kamaji-etcd
+          matchExpressions:
+            - key: io.kubernetes.pod.namespace
+              operator: Exists
+      toPorts:
+        - ports:
+            - port: "2379"
   ingress:
   - fromEntities:
     - cluster
