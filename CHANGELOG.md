@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Update chart to upstream tag `edge-26.2.5`.
+
+### Changed
+
 - Update `ciliumNetworkPolicy` for kamaji-etcd.
 
 ## [0.2.1] - 2026-01-26
