@@ -7,7 +7,7 @@ directories:
         git:
           depth: 1
           url: https://github.com/clastix/kamaji
-          ref: "edge-25.12.3"
+          ref: "edge-26.2.5"
         includePaths:
           - charts/**/*
   - path: helm/kamaji

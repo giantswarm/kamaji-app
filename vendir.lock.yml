@@ -2,10 +2,10 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'feat: add support for multiple Datastores (#961)...'
-      sha: d3fb03a75242270cd75bb3f27690f73ab84831ed
+      commitTitle: 'refactor!: datastore conditions (#1087)...'
+      sha: 309d9889e8eefe40b4c6c6843ad9683959f02e5e
       tags:
-      - edge-25.12.3
+      - edge-26.2.5
     path: kamaji
   path: vendor
 - contents:
