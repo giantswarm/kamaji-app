@@ -3,6 +3,8 @@ kind: CiliumNetworkPolicy
 metadata:
   name: kamaji
   namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kamaji.labels" . | nindent 4 }}
 spec:
   endpointSelector:
     matchLabels:
