@@ -1,0 +1,19 @@
+# ClusterRole for DataStore (cluster-scoped resource)
+# The ClusterRoleBinding is created in each org namespace by rbac-operator. See: https://github.com/giantswarm/rbac-operator/pull/724
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kamaji-etcd-helmrelease-datastores
+  labels:
+    {{- include "kamaji.labels" . | nindent 4 }}
+rules:
+  - apiGroups: ["kamaji.clastix.io"]
+    resources:
+      - datastores
+    verbs:
+      - delete
+      - get
+      - patch
+      - update
+      - create
+      - list
