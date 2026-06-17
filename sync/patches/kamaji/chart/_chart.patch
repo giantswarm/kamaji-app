@@ -10,7 +10,7 @@ index a7ec5fa..b72d7ef 100644
 -home: https://github.com/clastix/kamaji
 -icon: https://github.com/clastix/kamaji/raw/master/assets/logo-colored.png
 +home: https://github.com/giantswarm/kamaji-app
-+icon: https://s.giantswarm.io/app-icons/kamaji/1/light.png
++icon: https://s.giantswarm.io/app-icons/kamaji/2/light.svg
  kubeVersion: ">=1.21.0-0"
  maintainers:
 -- email: dario@tranchitella.eu
