@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-06-17
+
 ### Added
 
 - Create clusterRole for kamaji-etcd Datastore CRs.
@@ -59,7 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `sync/` folder with patch-based sync system for maintaining Giant Swarm specific overrides
 - Added vendir configuration for syncing upstream chart
 
-[Unreleased]: https://github.com/giantswarm/kamaji-app/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/giantswarm/kamaji-app/compare/v0.2.3...HEAD
+[0.2.3]: https://github.com/giantswarm/kamaji-app/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/giantswarm/kamaji-app/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/giantswarm/kamaji-app/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/giantswarm/kamaji-app/compare/v0.1.1...v0.2.0
