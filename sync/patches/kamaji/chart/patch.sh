@@ -14,8 +14,8 @@ readonly script_dir_rel=".${script_dir#"${repo_dir}"}"
 
 set -x
 
-### STEP 1: Apply vendir diff patches
-git apply "${script_dir_rel}/_chart.patch"
+### STEP 1: Copy template Chart.yaml over
+cp "${script_dir}"/manifests/Chart.yaml ./helm/kamaji/
 
 ### STEP 2: Update Chart.yaml appVersion and version fields
 # get the upstream sync version from vendir.yml
@@ -34,6 +34,5 @@ LATEST_VERSION="${LATEST_VERSION#v}"
 
 # set the app version in Chart.yaml
 sed -i -E "s/REPLACE_CHARTVERSION/${LATEST_VERSION}/" "${CHART_DIR}/Chart.yaml"
-sed -i "s/REPLACE_CRDVERSION/${LATEST_VERSION}/g" "${CHART_DIR}/Chart.yaml"
 
 { set +x; } 2>/dev/null
