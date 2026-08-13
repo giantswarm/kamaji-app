@@ -20,6 +20,6 @@ annotations:
   io.giantswarm.application.upstream-chart-version: "edge-25.12.3"
 dependencies:
 - name: kamaji-crds
-  version: edge-25.12.3
+  version: 25.12.3
 sources:
 - https://github.com/clastix/kamaji

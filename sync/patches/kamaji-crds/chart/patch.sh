@@ -38,6 +38,9 @@ else
     CRD_CHART_VERSION=$(curl --silent https://raw.githubusercontent.com/giantswarm/kamaji-app/refs/heads/main/helm/kamaji/charts/kamaji-crds/Chart.yaml | yq .version -r)
 fi
 
+# string leading 'edge-' from the version string as this is not a Helm chart version
+CRD_CHART_VERSION="${CRD_CHART_VERSION#edge-}"
+
 # update the crd chart version
 sed -i -E "s/^(version: ).*/\1${CRD_CHART_VERSION}/" "${CHART_DIR}/Chart.yaml"
 
