@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update CRD chart handling.
+
 ## [0.2.3] - 2026-06-17
 
 ### Added

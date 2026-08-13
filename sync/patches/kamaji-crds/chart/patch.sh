@@ -6,7 +6,6 @@ set -o pipefail
 
 repo_dir=$(git rev-parse --show-toplevel) ; readonly repo_dir
 script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) ; readonly script_dir
-CHART_DIR="${repo_dir}/helm/kamaji/charts/kamaji-crds" ; readonly CHART_DIR
 
 cd "${repo_dir}"
 
@@ -15,21 +14,35 @@ readonly script_dir_rel=".${script_dir#"${repo_dir}"}"
 set -x
 git apply "${script_dir_rel}/_chart.patch"
 
-# get the upstream sync version from vendir.yml
-UPSTREAM_SYNC_VERSION=$(yq -r .directories[0].contents[0].git.ref ./vendir.yml)
+# update the crd Chart.yaml if the CRDs have changed
+CRDS_CHANGED=0
+PARENT_CHART_DIR="./helm/kamaji"
+CHART_DIR="./helm/kamaji/charts/kamaji-crds"
+CRDS_DIR="./helm/kamaji/charts/kamaji-crds/templates"
 
-# set the app version in Chart.yaml
-sed -i -E "s/^appVersion.*$/appVersion: ${UPSTREAM_SYNC_VERSION}/" "${CHART_DIR}/Chart.yaml"
+# check for updated CRDs
+if ! git diff --quiet HEAD -- "${CRDS_DIR}"; then
+    CRDS_CHANGED=1
+fi
 
-# we need to reset the version field in Chart.yaml to match the
-# latest release of this repo. So we fetch it with jq and then
-# inject it back into the Chart.yaml to avoid the upstream change and let build suite update it.
+# check for new CRDs
+if git ls-files --others --exclude-standard -- "${CRDS_DIR}" | grep -q .; then
+    CRDS_CHANGED=1
+fi
 
-LATEST_VERSION=$(curl -s https://api.github.com/repos/giantswarm/kamaji-app/releases/latest | jq -r .name)
-# remove leading 'v' if present
-LATEST_VERSION="${LATEST_VERSION#v}"
+if [[ $CRDS_CHANGED -eq 1 ]]; then
+    # CRDs have changed in this release, set the CRD chart version to match the upstream version we're syncing against
+    CRD_CHART_VERSION=$(yq .directories[0].contents[0].git.ref "${repo_dir}/vendir.yml")
+else
+    # no change to CRDs, ensure the CRD chart version is not bumped by setting it to the current published version
+    CRD_CHART_VERSION=$(curl --silent https://raw.githubusercontent.com/giantswarm/kamaji-app/refs/heads/main/helm/kamaji/charts/kamaji-crds/Chart.yaml | yq .version -r)
+fi
 
-# set the app version in Chart.yaml
-sed -i -E "s/^version.*$/version: ${LATEST_VERSION}/" "${CHART_DIR}/Chart.yaml"
+# string leading 'edge-' from the version string as this is not a Helm chart version
+CRD_CHART_VERSION="${CRD_CHART_VERSION#edge-}"
 
-{ set +x; } 2>/dev/null
+# update the crd chart version
+sed -i -E "s/^(version: ).*/\1${CRD_CHART_VERSION}/" "${CHART_DIR}/Chart.yaml"
+
+# replace the placeholder in the main chart's dependencies
+sed -i -E "s/REPLACE_CRDVERSION/${CRD_CHART_VERSION}/" "${PARENT_CHART_DIR}/Chart.yaml"

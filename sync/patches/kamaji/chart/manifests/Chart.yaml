@@ -1,8 +1,8 @@
 apiVersion: v2
 # upstream chart version
-appVersion: edge-25.12.3
+appVersion: UPSTREAM_SYNC_VERSION
 # giantswarm chart version
-version: 0.2.3
+version: REPLACE_CHARTVERSION
 name: kamaji
 type: application
 description: Kamaji is the Hosted Control Plane Manager for Kubernetes.
@@ -17,9 +17,9 @@ annotations:
   io.giantswarm.application.audience: "giantswarm"
   io.giantswarm.application.managed: "true"
   io.giantswarm.application.upstream-chart-url: "https://github.com/clastix/kamaji"
-  io.giantswarm.application.upstream-chart-version: "edge-25.12.3"
+  io.giantswarm.application.upstream-chart-version: "UPSTREAM_SYNC_VERSION"
 dependencies:
 - name: kamaji-crds
-  version: 25.12.3
+  version: REPLACE_CRDVERSION
 sources:
 - https://github.com/clastix/kamaji
