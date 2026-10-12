@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Revert 'Disable Helm image reference verification in CI config'.
 - Stop overriding appVersion in chart metadata.
 - Update architect to v10.13.0 (giantswarm/kamaji-app#76)
+- Update architect to v10.13.2 (giantswarm/kamaji-app#77)
 
 ### Added
 
