@@ -7,10 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
+### Added
 
-- The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
-- Fix changelog generation script.
+- Run the sync script automatically on Renovate vendir branches and push the result for review.
+- Add a check which fails a pull request if the sync script was not run.
+- Add shared helpers file to sync dir.
 
 ### Changed
 
@@ -22,12 +23,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update architect to v10.13.0 (giantswarm/kamaji-app#76)
 - Update architect to v10.13.2 (giantswarm/kamaji-app#77)
 - Update architect to v10.13.5 (giantswarm/kamaji-app#79)
+- Use Linux tools to manipulate chart label instead of an inscrutable Perl command.
 
-### Added
+### Fixed
 
-- Run the sync script automatically on Renovate vendir branches and push the result for review.
-- Add a check which fails a pull request if the sync script was not run.
-- Add shared helpers file to sync dir.
+- The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
+- Fix changelog generation script.
+- Fix the `sync/sync.sh` script issues caused by #67.
 
 ## [0.2.3] - 2026-06-17
 
