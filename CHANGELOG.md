@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update actions/create-github-app-token to v3.3.0 (giantswarm/kamaji-app#94)
 - Update architect to v10.14.18 (giantswarm/kamaji-app#95)
 - Update architect to v10.15.1 (giantswarm/kamaji-app#96)
+- Update architect to v10.16.3 (giantswarm/kamaji-app#97)
 
 ### Fixed
 
